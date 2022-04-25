@@ -22,3 +22,17 @@ nodes:
 ```bash
 kind create cluster --config kind-cluster-config.yaml
 ```
+
+## OIDC Seret
+
+`clientID` and `clientSecret` are defined in
+`clusters/agn-kind/dex/helm_release.yaml`.
+
+```bash
+kubectl create secret generic oidc-auth \
+  --namespace flux-system \
+  --from-literal=issuerURL=https://dex.gitops.efertone.me \
+  --from-literal=clientID=weave-gitops \
+  --from-literal=clientSecret=AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En \
+  --from-literal=redirectURL=http://ws.efertone.me:9001/oauth2/callback
+```
