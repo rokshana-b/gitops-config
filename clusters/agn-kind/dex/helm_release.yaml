@@ -46,8 +46,7 @@ spec:
         - 'http://localhost:4567/oauth2/callback'
         - 'https://localhost:4567/oauth2/callback'
         - 'http://localhost:3000/oauth2/callback'
-        - 'https://dex.gitops.efertone.me:4567/oauth2/callback'
-        - 'http://dex.gitops.efertone.me:9001/oauth2/callback'
+        - 'http://ws.efertone.me:9001/oauth2/callback'
       connectors:
       - type: github
         id: github
