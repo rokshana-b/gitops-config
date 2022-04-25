@@ -16,5 +16,6 @@ spec:
         namespace: ingress-nginx
       interval: 1m
   values:
-    service:
-      type: NodePort
+    controller:
+      service:
+        type: NodePort
