@@ -21,5 +21,7 @@ spec:
         type: NodePort
         httpPort:
           nodePort: 80
+          enable: true
         httpsPort:
           nodePort: 443
+          enable: true
