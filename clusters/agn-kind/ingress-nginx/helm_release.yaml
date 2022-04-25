@@ -19,10 +19,6 @@ spec:
     controller:
       service:
         type: NodePort
-        httpPort:
-          nodePort: 80
-        httpsPort:
-          nodePort: 443
         nodePorts:
-          http: 80
-          https: 443
+          http: 30000
+          https: 30001
