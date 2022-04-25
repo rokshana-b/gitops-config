@@ -25,3 +25,6 @@ spec:
         httpsPort:
           nodePort: 443
           enable: true
+        nodePorts:
+          http: 80
+          https: 443
