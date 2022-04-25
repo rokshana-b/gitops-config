@@ -36,3 +36,8 @@ kubectl create secret generic oidc-auth \
   --from-literal=clientSecret=AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En \
   --from-literal=redirectURL=http://ws.efertone.me:9001/oauth2/callback
 ```
+
+## GitHub OAuth Application
+
+![image](https://user-images.githubusercontent.com/183191/165118739-4eae08d6-cf4b-4f76-bd78-8475f741127e.png)
+
