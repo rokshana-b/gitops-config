@@ -23,6 +23,16 @@ nodes:
 kind create cluster --config kind-cluster-config.yaml
 ```
 
+## GitHub secret
+
+```bash
+kubectl create namespace dex
+kubectl create secret generic github-client \
+  --namespace=dex \
+  --from-literal=client-id=${GITHUB_CLIENT_ID} \
+  --from-literal=client-secret=${GITHUB_CLIENT_SECRET}
+```
+
 ## OIDC Seret
 
 `clientID` and `clientSecret` are defined in
