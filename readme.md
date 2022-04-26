@@ -3,7 +3,7 @@
 ```yaml
 ---
 kind: Cluster
-name: oidc-test
+name: oidc
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
 - role: control-plane
@@ -23,6 +23,21 @@ nodes:
 kind create cluster --config kind-cluster-config.yaml
 ```
 
+## OIDC Seret
+
+`clientID` and `clientSecret` are defined in
+`clusters/kind/dex/helm_release.yaml`.
+
+```bash
+kubectl create namespace flux-system
+kubectl create secret generic oidc-auth \
+  --namespace flux-system \
+  --from-literal=issuerURL=https://dex.gitops.efertone.me \
+  --from-literal=clientID=weave-gitops \
+  --from-literal=clientSecret=AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En \
+  --from-literal=redirectURL=https://ui.gitops.efertone.me/oauth2/callback
+```
+
 ## Bootstrap flux
 
 ```bash
@@ -30,28 +45,16 @@ kind create cluster --config kind-cluster-config.yaml
   --owner=$GITHUB_USER \
   --repository=gitops-config \
   --branch=main \
-  --path=./clusters/agn-kind \
+  --path=./clusters/kind \
   --personal
 ```
 
 ## ClusterIssuer
 
-```bash
-kubectl apply -f clusters/agn-kind/cert-manager/cluster_issuer.yaml
-```
-
-## OIDC Seret
-
-`clientID` and `clientSecret` are defined in
-`clusters/agn-kind/dex/helm_release.yaml`.
+(can't be created before cert manager is installed)
 
 ```bash
-kubectl create secret generic oidc-auth \
-  --namespace flux-system \
-  --from-literal=issuerURL=https://dex.gitops.efertone.me \
-  --from-literal=clientID=weave-gitops \
-  --from-literal=clientSecret=AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En \
-  --from-literal=redirectURL=https://ui.gitops.efertone.me/oauth2/callback
+kubectl apply -f clusters/kind/cert-manager/cluster_issuer.yaml
 ```
 
 ## GitHub OAuth Application
