@@ -51,7 +51,7 @@ kubectl create secret generic oidc-auth \
   --from-literal=issuerURL=https://dex.gitops.efertone.me \
   --from-literal=clientID=weave-gitops \
   --from-literal=clientSecret=AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En \
-  --from-literal=redirectURL=http://ws.efertone.me:9001/oauth2/callback
+  --from-literal=redirectURL=https://ui.gitops.efertone.me/oauth2/callback
 ```
 
 ## GitHub OAuth Application
