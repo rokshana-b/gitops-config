@@ -1,4 +1,4 @@
-Kind cluster config:
+## Kind cluster config
 
 ```yaml
 ---
@@ -21,6 +21,23 @@ nodes:
 
 ```bash
 kind create cluster --config kind-cluster-config.yaml
+```
+
+## Bootstrap flux
+
+```bash
+❯ flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=gitops-config \
+  --branch=main \
+  --path=./clusters/agn-kind \
+  --personal
+```
+
+## ClusterIssuer
+
+```bash
+kubectl apply -f clusters/agn-kind/cert-manager/cluster_issuer.yaml
 ```
 
 ## OIDC Seret
