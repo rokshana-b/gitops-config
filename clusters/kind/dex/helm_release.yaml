@@ -41,6 +41,7 @@ spec:
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'http://ws.efertone.me:9001/oauth2/callback'
+        - 'http://ws.efertone.me:4567/oauth2/callback'
         - 'https://ui.gitops.efertone.me/oauth2/callback'
       connectors:
       - type: github
