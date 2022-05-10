@@ -9,15 +9,14 @@ subjects:
     name: weaveworks:weaveworks
     namespace: flux-system
 roleRef:
-  kind: Role
+  kind: ClusterRoleRole
   name: wego-admin-role
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: wego-admin-role
-  namespace: flux-system
 rules:
   - apiGroups: [""]
     resources: ["secrets", "pods" ]
