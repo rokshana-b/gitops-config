@@ -14,11 +14,11 @@ spec:
         kind: HelmRepository
         name: traefik
   values:
-    deployment:
-      podAnnotations:
-        prometheus.io/port: "9100"
-        prometheus.io/scrape: "true"
-        prometheus.io/path: "/metrics"
+    #deployment:
+    #  podAnnotations:
+    #    prometheus.io/port: "9100"
+    #    prometheus.io/scrape: "true"
+    #    prometheus.io/path: "/metrics"
     metrics:
       prometheus:
         entryPoint: metrics
