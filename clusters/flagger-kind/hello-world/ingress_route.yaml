@@ -16,4 +16,4 @@ spec:
       services:
         - name: hello-world
           kind: TraefikService
-          port: 9999
+          port: 80
