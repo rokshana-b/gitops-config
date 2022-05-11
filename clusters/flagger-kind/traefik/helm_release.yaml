@@ -32,10 +32,10 @@ spec:
       - --certificatesresolvers.cloudflare.acme.storage=/certs/acme.json
     ports:
       web:
-        hostPort: 30000
+        nodePort: 30000
         redirectTo: websecure
       websecure:
-        hostPort: 30001
+        nodePort: 30001
     service:
       enabled: true
       type: NodePort
