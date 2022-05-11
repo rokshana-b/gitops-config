@@ -4,3 +4,4 @@ resources:
   - namespace.yaml
   - helm_repository.yaml
   - helm_release.yaml
+  - helm_release_loadtester.yaml
