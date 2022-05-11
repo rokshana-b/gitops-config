@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: hello-world
+  namespace: hello-world
+spec:
+  entryPoints:
+    - websecure
+  tls:
+    certResolver: cloudflare
+    domains:
+      - main: hello.gitops.efertone.me
+  routes:
+    - match: Host(`hello.gitops.efertone.me`)
+      kind: Rule
+      services:
+        - name: hello-world
+          kind: TraefikService
+          port: 9999
